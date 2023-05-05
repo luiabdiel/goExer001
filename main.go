@@ -2,19 +2,21 @@ package main
 
 import (
 	"fmt"
+	"goexer/model"
 	"time"
 )
 
 func main() {
-	var itens []itensDaCompra
+	var itens []model.ItensDaCompra
 
-	itens = append(itens, itensDaCompra{nome: "arroz"})
-	itens = append(itens, itensDaCompra{nome: "feijao"})
+	itens = append(itens, model.ItensDaCompra{Nome: "arroz"})
+	itens = append(itens, model.ItensDaCompra{Nome: "feijao"})
+	itens = append(itens, model.ItensDaCompra{Nome: "carne"})
 
-	compra := compra{
-		mercado: "mercado x",
-		data:    time.Now(),
-		itens:   itens,
+	compra := model.Compra{
+		Mercado: "mercado x",
+		Data:    time.Now(),
+		Itens:   itens,
 	}
 
 	fmt.Println(compra)
