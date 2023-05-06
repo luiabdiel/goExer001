@@ -7,17 +7,17 @@ import (
 )
 
 func main() {
-	var itens []model.ItensDaCompra
+	var nomeDosItens []string
+	nomeDosItens = append(nomeDosItens, "arroz")
+	nomeDosItens = append(nomeDosItens, "feijao")
+	nomeDosItens = append(nomeDosItens, "carne")
+	nomeDosItens = append(nomeDosItens, "sabonete")
 
-	itens = append(itens, model.ItensDaCompra{Nome: "arroz"})
-	itens = append(itens, model.ItensDaCompra{Nome: "feijao"})
-	itens = append(itens, model.ItensDaCompra{Nome: "carne"})
+	compra, err := model.NovaCompra("Mercadinho", time.Now(), nomeDosItens)
 
-	compra := model.Compra{
-		Mercado: "mercado x",
-		Data:    time.Now(),
-		Itens:   itens,
+	if err != nil {
+		fmt.Println(err.Error())
+	} else {
+		fmt.Println(compra)
 	}
-
-	fmt.Println(compra)
 }
